@@ -9,7 +9,7 @@ Joi.objectId = joiObjectId
 
 async function connect () {
   await mongoose.connect(dbConfig.url, {useNewUrlParser: true})
-  debug('Database connected.')
+  debug(`Database connected to ${dbConfig.url}.`)
 }
 
 module.exports = connect

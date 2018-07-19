@@ -9,4 +9,8 @@ require('./setup/logging')(app)
 require('./setup/routes')(app)
 require('./setup/db')()
 
-app.listen(appConfig.port, () => debug(`Server listening on port ${appConfig.port}.`))
+const server = app.listen(appConfig.port, () => {
+  debug(`Server listening on port ${appConfig.port}.`)
+})
+
+module.exports = server

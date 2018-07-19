@@ -1,16 +1,14 @@
 const jwt = require('jsonwebtoken')
 const {authConfig} = require('../config')
 
-function generateAuth (options = {}) {
-  const {userProperty = 'user', required = false} = options
-
+function auth ({required = false} = {}) {
   return (req, res, next) => {
     const token = req.header('x-auth-token')
     if (!token) return res.status(401).json({error: 'Access denied. No token provided.'})
 
     try {
       const decoded = jwt.verify(token, authConfig.jwtSecret)
-      req[userProperty] = decoded
+      req.user = decoded
       next()
     } catch (error) {
       if (required) return res.status(400).json({error: 'Access denied. Invalid token provided.'})
@@ -19,4 +17,4 @@ function generateAuth (options = {}) {
   }
 }
 
-module.exports = {required: generateAuth({required: true}), optional: generateAuth()}
+module.exports = {required: auth({required: true}), optional: auth()}
