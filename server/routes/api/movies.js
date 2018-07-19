@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
     genre: {
       _id: genre._id,
       name: genre.name,
-    }
+    },
     numberInStock: req.body.numberInStock,
     dailyRentalRate: req.body.dailyRentalRate,
   })

@@ -40,7 +40,7 @@ const rentalSchema = new mongoose.Schema({
         min: 0,
         max: 255,
       },
-    })
+    }),
     required: true,
   },
   dateOut: {

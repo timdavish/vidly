@@ -1,5 +1,9 @@
+const debug = require('debug')('app:error')
+
 function errorHandler () {
   return (error, req, res, next) => {
+    debug(error.message, error)
+
     const {name, errors} = error
 
     if (name === 'ValidationError') {
@@ -15,7 +19,7 @@ function errorHandler () {
       })
     }
 
-    next(error)
+    res.status(500).json({error: 'Something failed.'})
   }
 }
 
