@@ -5,6 +5,7 @@ router.use('/customers', require('./customers'))
 router.use('/genres', require('./genres'))
 router.use('/movies', require('./movies'))
 router.use('/rentals', require('./rentals'))
+router.use('/returns', require('./returns'))
 router.use('/users', require('./users'))
 
 module.exports = router

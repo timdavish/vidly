@@ -1,7 +1,7 @@
 const config = {
   appConfig: require('./app'),
   authConfig: require('./auth'),
-  dbConfig: require('./db')
+  dbConfig: require('./db'),
 }
 
 module.exports = config

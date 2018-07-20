@@ -3,12 +3,15 @@ const mongoose = require('mongoose')
 const {Genre} = require('../../../models/Genre')
 const {User} = require('../../../models/User')
 
-let server
-
 describe('/api/genres', () => {
-  beforeEach(() => { server = require('../../../index') })
+  let server
+
+  beforeEach(() => {
+    server = require('../../../index')
+  })
+
   afterEach(async () => {
-    server.close()
+    await server.close()
     await Genre.remove({})
   })
 
